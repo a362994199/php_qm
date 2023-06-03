@@ -118,7 +118,7 @@
 
 <body>
     <div class="twinkle">
-        <a href="./add.php">添加员工</a>
+        <a href="./add.php">添加党员</a>
     </div>
     <form action="" method="get">
         <div class="parent">
@@ -131,21 +131,21 @@
             <div class="title">
                 <table border="1">
                     <tr>
-                        <th width="5%">学号</th>
+                        <th width="5%">编号</th>
                         <th>姓名</th>
-                        <th>部门</th>
+                        <th>职务</th>
                         <th>出生日期</th>
-                        <th>入职时间</th>
+                        <th>入党时间</th>
                         <th width="25%">相关操作</th>
                     </tr>
                     <?php if (!empty($emp_info)) { ?>
                         <?php foreach ($emp_info as $row) { ?>
                             <tr>
                                 <td><?php echo $row['id']; ?></td>
-                                <td><?php echo $row['姓名']; ?></td>
-                                <td><?php echo $row['部门']; ?></td>
+                                <td><?php echo $row['name']; ?></td>
+                                <td><?php echo $row['职务']; ?></td>
                                 <td><?php echo $row['出生日期']; ?></td>
-                                <td><?php echo $row['入职时间']; ?></td>
+                                <td><?php echo $row['入党时间']; ?></td>
                                 <td>
                                     <div class="center">
                                         <span>
@@ -162,7 +162,7 @@
                         <?php } ?>
                     <?php } else { ?>
                         <tr>
-                            <td colspan="6">暂无学生数据！</td>
+                            <td colspan="6">暂无党员数据！</td>
                         </tr>
                     <?php } ?>
                 </table>

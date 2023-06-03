@@ -5,7 +5,7 @@ $id=isset($_GET['id'])?intval($_GET['id']):0;
 
 if(!empty($_POST)){
     $update=array();
-    $fields=array('id','姓名','部门','出生日期','入职时间');
+    $fields=array('id','name','职务','出生日期','入党时间');
    
     foreach($fields as $v){
         $data=isset($_POST[$v])?$_POST[$v]:'';
@@ -14,7 +14,7 @@ if(!empty($_POST)){
         $update[]="`$v`='$data'";
     }
     $values=implode(',', $update);
-    $sql="update `087cyh1` set $values  where `id`=$id";
+    $sql="update `dy_table` set $values  where `id`=$id";
     if($res=query(($sql))){
         header('Location:./showlist.php');
         die;
@@ -22,7 +22,7 @@ if(!empty($_POST)){
         die('修改失败');
     }
 }else{
-    $sql="select * from `087cyh1` where `id`=$id";
+    $sql="select * from `dy_table` where `id`=$id";
     $emp_info=fetchrow($sql);
     require './update_html.php';
 }

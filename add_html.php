@@ -46,7 +46,7 @@
 </head>
 <body>
     <div class="box">
-        <h1>添加员工</h1>
+        <h1>添加党员资料</h1>
         <form action="./add.php" method="post">
             <table class="profile-table">
                 <tr>
@@ -55,19 +55,19 @@
                 </tr>
                 <tr>
                     <th>姓名：</th>
-                    <td><input type="text" name="姓名"></td>
+                    <td><input type="text" name="name"></td>
                 </tr>
                 <tr>
-                    <th>部门：</th>
-                    <td><input type="text" name="部门"></td>
+                    <th>职务：</th>
+                    <td><input type="text" name="职务" placeholder="如无职务请写：预备/正式党员"></td>
                 </tr>
                 <tr>
                     <th>出生日期：</th>
                     <td><input type="date" name="出生日期"></td>
                 </tr>
                 <tr>
-                    <th>入职时间：</th>
-                    <td><input type="date" name="入职时间"></td>
+                    <th>入党时间：</th>
+                    <td><input type="date" name="入党时间" ></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="td-btn">

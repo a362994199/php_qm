@@ -16,12 +16,11 @@ $where='';
 if(isset($_GET['keyword'])){
     $keyword=$_GET['keyword'];
     $keyword=mysqli_real_escape_string(dbinit(),$keyword);
-    $where="where 姓名 like '%$keyword%'";
-    $where="where id like '%$keyword%'";
+    $where="where id like '%$keyword%' or name like '%$keyword%' or 职务 like '%$keyword%' or 出生日期 like '%$keyword%' or 入党时间 like '%$keyword%'";
 
 }
 
-$sql = "select * from 087cyh1 $where ";
+$sql = "select * from dy_table $where ";
 // $sql = 'select * from `087cyh1` $where';
 
 

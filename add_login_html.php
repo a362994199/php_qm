@@ -5,15 +5,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎登录</title>
+    <title>欢迎注册</title>
     <style>
-        a:link{
-            color: #fff;
-            text-decoration: none;
-        }
-        a:visited{
-            color: #fff;
-        }
         body {
             background-color: #eee;
             margin: 0;
@@ -56,11 +49,10 @@
         }
 
         .reg .td-btn {
-            text-align: center;
-            padding-top: 10px;
+            text-align:center;
+            padding-top:10px;
         }
-
-        .error-box {
+        .error-box{
             width: 378px;
             margin: 15px;
             padding: 10px;
@@ -69,7 +61,6 @@
             font-size: 14px;
             color: #ff0000;
         }
-
         .error-box ul {
             margin: 10px;
             padding-left: 25px;
@@ -81,33 +72,34 @@
     <form method="post">
         <table class="reg">
             <tr>
-                <td class="title" colspan="2">欢迎登录</td>
+                <td class="title" colspan="2">欢迎注册</td>
+            </tr>
+            <tr>
+                <th>账号：</th>
+                <td><input type="text" name="id" /></td>
             </tr>
             <tr>
                 <th>用户名：</th>
-                <td><input type="text" name="username" /></td>
+                <td><input type="text" name="user" /></td>
             </tr>
             <tr>
                 <th>密码：</th>
-                <td><input type="password" name="password" /></td>
+                <td><input type="password" name="pass" /></td>
             </tr>
             <tr>
                 <td colspan="2" class="td-btn">
-                    <input type="submit" value="登录" class="button" />
+                    <input type="submit" value="注册" class="button" />
                     <input type="reset" value="重新填写" class="button" />
-                    <a href="<?php
-                                echo './add_login.php';
-                                ?>"><input type="button" class="button" value="注册"></a>
                 </td>
             </tr>
         </table>
     </form>
-    <?php if (!empty($error)) : ?>
-        <div class="error-box">登录失败。错误信息如下：
-            <ul><?php foreach ($error as $v) echo "<li>$v</li>"; ?></ul>
+    <?php if(!empty($error)): ?>
+        <div class="error-box">注册失败。错误信息如下：
+            <ul><?php foreach($error as $v) echo "<li>$v</li>"; ?></ul>
         </div>
-
-    <?php endif; ?>
+           
+    <?php endIf; ?>
 </body>
 
 </html>

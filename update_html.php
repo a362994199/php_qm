@@ -46,7 +46,7 @@
 </head>
 <body>
     <div class="box">
-        <h1>修改员工</h1>
+        <h1>修改党员资料</h1>
         <form  method="post">
             <table class="profile-table">
                 <tr>
@@ -55,11 +55,11 @@
                 </tr>
                 <tr>
                     <th>姓名：</th>
-                    <td><input type="text" name="姓名" value="<?php echo $emp_info['姓名'];?>">></td>
+                    <td><input type="text" name="name" value="<?php echo $emp_info['name'];?>">></td>
                 </tr>
                 <tr>
                     <th>部门：</th>
-                    <td><input type="text" name="部门" value="<?php echo $emp_info['部门'];?>">></td>
+                    <td><input type="text" name="职务" value="<?php echo $emp_info['职务'];?>">></td>
                 </tr>
                 <tr>
                     <th>出生日期：</th>
@@ -67,7 +67,7 @@
                 </tr>
                 <tr>
                     <th>入职时间：</th>
-                    <td><input type="date" name="入职时间" value="<?php echo $emp_info['入职时间'];?>">></td>
+                    <td><input type="date" name="入党时间" value="<?php echo $emp_info['入党时间'];?>">></td>
                 </tr>
                 <tr>
                     <td colspan="2" class="td-btn">

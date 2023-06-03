@@ -3,7 +3,7 @@ require './public_function.php';
 dbinit();
 //检查一个变量是否为空
 if(!empty($_POST)){
-    $fields=array('id','name','职务','出生日期','入党时间');
+    $fields=array('id','user','pass');
     $value=array();
     foreach($fields as $k=>$v){
         $data=isset($_POST[$v])?$_POST[$v]:'';// isset() 测试一个被设置成 NULL 的变量，将返回 FALSE
@@ -14,13 +14,13 @@ if(!empty($_POST)){
     }
     $fields=implode(',',$fields);  //把数组元素组合为字符串
     $values=implode(',',$values);
-    $sql="insert into `dy_table` ($fields) values ($values)";
+    $sql="insert into `user` ($fields) values ($values)";
     if($res=query(($sql))){
-        header('Location: ./showlist.php');
+        header('Location: ./login.php');
         die;
     }else{
         die('添加失败');
     }
 }
-require './add_html.php';
+require './add_login_html.php';
 ?>
