@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎登录</title>
+    <title>Document</title>
     <style>
         body {
             margin: 0;
@@ -95,72 +95,42 @@
             transform: scale(1);
         }
 
-
-
-
-
-        a:link {
-            color: #fff;
-            text-decoration: none;
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
         }
 
-        a:visited {
-            color: #fff;
-        }
-
-        .reg {
-            width: 400px;
-            margin: 15px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-        }
-
-        .reg .title {
+        .bordered {
+            border: solid #ccc 1px;
+            -moz-border-radius: 6px;
+            -webkit-border-radius: 6px;
+            border-radius: 6px;
             text-align: center;
-            padding-bottom: 10px;
         }
 
-        .reg th {
-            font-weight: normal;
+        .bordered tr,
+        td {
+            border: solid #ccc 1px;
+            padding: 10px;
+        }
+
+        .bordered tr:nth-child(1) {
+            background-color: aqua;
+        }
+
+        .bordered tr:nth-child(10) {
             text-align: right;
         }
 
-        .reg input {
-            width: 180px;
-            border: 1px solid #ccc;
-            height: 20px;
-            padding-left: 4px;
+        span {
+            color: red;
+            font-weight: bold;
         }
 
-        .reg .button {
-            background-color: #0099ff;
-            border: 1px solid #0099ff;
-            color: #fff;
-            width: 80px;
-            height: 25px;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-
-        .reg .td-btn {
+        h2 {
             text-align: center;
-            padding-top: 10px;
-        }
-
-        .error-box {
-            width: 378px;
-            margin: 15px;
-            padding: 10px;
-            background: #fff0f2;
-            border: 1px dotted #ff0099;
-            font-size: 14px;
-            color: #ff0000;
-        }
-
-        .error-box ul {
-            margin: 10px;
-            padding-left: 25px;
+            margin: 9px 0;
         }
     </style>
 </head>
@@ -177,36 +147,36 @@
             <li><a href="order.php">成绩单显示</a></li>
         </ul>
     </div>
-    <form method="post">
-        <table class="reg">
-            <tr>
-                <td class="title" colspan="2">欢迎登录</td>
-            </tr>
-            <tr>
-                <th>用户名：</th>
-                <td><input type="text" name="username" /></td>
-            </tr>
-            <tr>
-                <th>密码：</th>
-                <td><input type="password" name="password" /></td>
-            </tr>
-            <tr>
-                <td colspan="2" class="td-btn">
-                    <input type="submit" value="登录" class="button" />
-                    <input type="reset" value="重新填写" class="button" />
-                    <a href="<?php
-                                echo './add_login.php';
-                                ?>"><input type="button" class="button" value="注册"></a>
-                </td>
-            </tr>
-        </table>
-    </form>
-    <?php if (!empty($error)) : ?>
-        <div class="error-box">登录失败。错误信息如下：
-            <ul><?php foreach ($error as $v) echo "<li>$v</li>"; ?></ul>
-        </div>
-
-    <?php endif; ?>
+    <?php
+    $goods = array(
+        array('name' => 'c语言程序设计', 'price' => "96", 'num' => 4),
+        array('name' => 'C++程序设计', 'price' => "96", 'num' => 3),
+        array('name' => '办公软件', 'price' => "92", 'num' => 1),
+        array('name' => '计算机网络', 'price' => "98", 'num' => 3),
+        array('name' => 'web编程基础', 'price' => "83", 'num' => 3),
+        array('name' => '数据库原理与应用', 'price' => "84", 'num' => 3),
+        array('name' => 'linux操作系统', 'price' => "82", 'num' => 4),
+        array('name' => '大学计算机基础', 'price' => "89", 'num' => 3),
+    );
+    $total = 0;
+    $str = '<h2>成绩单</h2>';
+    $str .= '<table class="bordered">';
+    $str .= '<tr><td>课程名字</td><td>成绩</td><td>学分</td><td>学分绩点</td><td>成绩绩点</td></tr>';
+    foreach ($goods as $values) {
+        $str .= '<tr>';
+        foreach ($values as $v) {
+            $str .= '<td>' . $v . '</td>';
+        }
+        $num = $values['price'] / 10 - 5;
+        $cyh = $values['num'] * $num;
+        $str .= '<td>' . $cyh . '</td>';
+        $str .= '<td>' . $num . '</td>';
+        $str .= '</tr>';
+        $total += $values['price'];
+    }
+    $str .= '<tr><td colspan="5">总成绩：<span>' . $total . '</span></td></tr></table>';
+    echo $str;
+    ?>
 </body>
 
 </html>

@@ -1,11 +1,10 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎登录</title>
+    <title>Document</title>
     <style>
         body {
             margin: 0;
@@ -95,78 +94,27 @@
             transform: scale(1);
         }
 
-
-
-
-
-        a:link {
-            color: #fff;
-            text-decoration: none;
+        body{
+            background: url(087_2.png) no-repeat;
+            background-size:100% 100%;
         }
-
-        a:visited {
-            color: #fff;
+        table{
+            border-collapse: separate;
+            border-spacing: 2px;
+            width: 100%;
+            margin: 80px auto 10px;
         }
-
-        .reg {
-            width: 400px;
-            margin: 15px auto;
-            padding: 20px;
-            border: 1px solid #ccc;
-            background-color: #fff;
-        }
-
-        .reg .title {
+        .bordered tr,td{
+            border: solid #ccc 1px;
+            padding: 5px;
             text-align: center;
-            padding-bottom: 10px;
-        }
-
-        .reg th {
-            font-weight: normal;
-            text-align: right;
-        }
-
-        .reg input {
-            width: 180px;
-            border: 1px solid #ccc;
-            height: 20px;
-            padding-left: 4px;
-        }
-
-        .reg .button {
-            background-color: #0099ff;
-            border: 1px solid #0099ff;
-            color: #fff;
-            width: 80px;
-            height: 25px;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-
-        .reg .td-btn {
-            text-align: center;
-            padding-top: 10px;
-        }
-
-        .error-box {
-            width: 378px;
-            margin: 15px;
-            padding: 10px;
-            background: #fff0f2;
-            border: 1px dotted #ff0099;
-            font-size: 14px;
-            color: #ff0000;
-        }
-
-        .error-box ul {
-            margin: 10px;
-            padding-left: 25px;
+            background-color: #fefefe;
+            opacity: 0.8;
         }
     </style>
 </head>
-
 <body>
-    <div class="nav">
+<div class="nav">
         <ul class="item">
             <li><a href="login.php">登录页面</a></li>
             <li><a href="server.php">服务器信息显示</a></li>
@@ -177,36 +125,16 @@
             <li><a href="order.php">成绩单显示</a></li>
         </ul>
     </div>
-    <form method="post">
-        <table class="reg">
-            <tr>
-                <td class="title" colspan="2">欢迎登录</td>
-            </tr>
-            <tr>
-                <th>用户名：</th>
-                <td><input type="text" name="username" /></td>
-            </tr>
-            <tr>
-                <th>密码：</th>
-                <td><input type="password" name="password" /></td>
-            </tr>
-            <tr>
-                <td colspan="2" class="td-btn">
-                    <input type="submit" value="登录" class="button" />
-                    <input type="reset" value="重新填写" class="button" />
-                    <a href="<?php
-                                echo './add_login.php';
-                                ?>"><input type="button" class="button" value="注册"></a>
-                </td>
-            </tr>
-        </table>
-    </form>
-    <?php if (!empty($error)) : ?>
-        <div class="error-box">登录失败。错误信息如下：
-            <ul><?php foreach ($error as $v) echo "<li>$v</li>"; ?></ul>
-        </div>
-
-    <?php endif; ?>
+    <table class="bordered">
+        <?php
+        for($i=1;$i<10;++$i){
+            echo '<tr>';
+            for($j=1;$j<=$i;$j++){
+                echo "<td>{$j}*{$i}=".$j*$i.'</td>';
+            }
+            echo '</tr>';
+        }
+        ?>
+    </table>
 </body>
-
 </html>

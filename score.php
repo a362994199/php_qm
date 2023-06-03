@@ -5,8 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>欢迎登录</title>
+    <title>Document</title>
     <style>
+        body {
+            
+        }
         body {
             margin: 0;
             padding: 0;
@@ -95,72 +98,22 @@
             transform: scale(1);
         }
 
-
-
-
-
-        a:link {
-            color: #fff;
-            text-decoration: none;
-        }
-
-        a:visited {
-            color: #fff;
-        }
-
-        .reg {
-            width: 400px;
-            margin: 15px auto;
-            padding: 20px;
+        .box {
+            background: url(087.jpg) no-repeat;
+            height: 190px;
+            width: 480px;
             border: 1px solid #ccc;
-            background-color: #fff;
+            text-align: left;
+            background-color: white;
+            opacity: 0.8;
         }
 
-        .reg .title {
+        h2 {
             text-align: center;
-            padding-bottom: 10px;
         }
 
-        .reg th {
-            font-weight: normal;
-            text-align: right;
-        }
-
-        .reg input {
-            width: 180px;
-            border: 1px solid #ccc;
-            height: 20px;
-            padding-left: 4px;
-        }
-
-        .reg .button {
-            background-color: #0099ff;
-            border: 1px solid #0099ff;
-            color: #fff;
-            width: 80px;
-            height: 25px;
-            margin: 0 5px;
-            cursor: pointer;
-        }
-
-        .reg .td-btn {
-            text-align: center;
-            padding-top: 10px;
-        }
-
-        .error-box {
-            width: 378px;
-            margin: 15px;
-            padding: 10px;
-            background: #fff0f2;
-            border: 1px dotted #ff0099;
-            font-size: 14px;
-            color: #ff0000;
-        }
-
-        .error-box ul {
-            margin: 10px;
-            padding-left: 25px;
+        p {
+            padding-left: 62px;
         }
     </style>
 </head>
@@ -177,36 +130,32 @@
             <li><a href="order.php">成绩单显示</a></li>
         </ul>
     </div>
-    <form method="post">
-        <table class="reg">
-            <tr>
-                <td class="title" colspan="2">欢迎登录</td>
-            </tr>
-            <tr>
-                <th>用户名：</th>
-                <td><input type="text" name="username" /></td>
-            </tr>
-            <tr>
-                <th>密码：</th>
-                <td><input type="password" name="password" /></td>
-            </tr>
-            <tr>
-                <td colspan="2" class="td-btn">
-                    <input type="submit" value="登录" class="button" />
-                    <input type="reset" value="重新填写" class="button" />
-                    <a href="<?php
-                                echo './add_login.php';
-                                ?>"><input type="button" class="button" value="注册"></a>
-                </td>
-            </tr>
-        </table>
-    </form>
-    <?php if (!empty($error)) : ?>
-        <div class="error-box">登录失败。错误信息如下：
-            <ul><?php foreach ($error as $v) echo "<li>$v</li>"; ?></ul>
-        </div>
-
-    <?php endif; ?>
+    <div class="box">
+        <?php
+        $name = '海盗船长';
+        $score = 100;
+        $str = '';
+        if (is_int($score) || is_float($score)) {
+            if ($score >= 64 && $score <= 100) {
+                $str = '👑';
+            } elseif ($score >= 16 && $score < 64) {
+                $str = '☀';
+            } elseif ($score >= 4 && $score < 16) {
+                $str = '🌙';
+            } elseif ($score >= 1 && $score < 4) {
+                $str = '⭐';
+            } elseif ($score >= 0 && $score < 1) {
+                $str = '未达到评级水平';
+            } else {
+                $str = '等级范围必须是0-100之间';
+            }
+        } else {
+            $str = '输入的等级不是数值';
+            $score = '输入错误';
+        }
+        echo "<h2>等级评定表</h2><p>姓名:$name<p>活跃级数： $score <P>等级:$str;"
+        ?>
+    </div>
 </body>
 
 </html>
